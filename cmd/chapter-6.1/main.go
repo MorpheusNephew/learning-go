@@ -10,5 +10,23 @@ Call both from `main`. Compile your program with `go build -gcflags="-m"`.
 This both compiles your code and prints out which values escape to the heap. Are you surprised about what escapes?
 */
 func main() {
-	fmt.Println("Hello world!")
+	person := MakePerson("FirstPerson", "LastPerson", 42)
+	personPointer := MakePersonPointer("FirstPersonPointer", "LastPersonPointer", 42)
+
+	fmt.Println("Here is the first person", person)
+	fmt.Println("Here is the first person pointer", personPointer)
+}
+
+type Person struct {
+	FirstName string
+	LastName  string
+	Age       int
+}
+
+func MakePerson(firstName, lastName string, age int) Person {
+	return Person{firstName, lastName, age}
+}
+
+func MakePersonPointer(firstName, lastName string, age int) *Person {
+	return &Person{firstName, lastName, age}
 }
