@@ -10,5 +10,18 @@ The second type is called `League` and has a field called `Teams` for the teams 
 and a field called `Wins` that maps a team’s name to its number of wins.
 */
 func main() {
-	fmt.Println("Hello world")
+	miamiHeat := Team{Name: "Miami Heat", Players: []string{"Jimmy Buckets"}}
+	nba := League{Teams: []string{miamiHeat.Name}, Wins: map[string]int{miamiHeat.Name: 10}}
+
+	fmt.Println(miamiHeat, nba, nba.Wins[miamiHeat.Name])
+}
+
+type Team struct {
+	Name    string
+	Players []string
+}
+
+type League struct {
+	Teams []string
+	Wins  map[string]int
 }
