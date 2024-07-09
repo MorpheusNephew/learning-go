@@ -29,6 +29,7 @@ func main() {
 	fmt.Println(linkedList)
 	fmt.Println(linkedList.Index(11))
 	fmt.Println(linkedList.Index(5))
+	fmt.Println(linkedList.Index(26))
 }
 
 func MakeLinkedList[T comparable](val T) *Node[T] {
