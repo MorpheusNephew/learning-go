@@ -8,11 +8,9 @@ import (
 	"strings"
 )
 
-/*
-Rather than returning the first error found,
-return back a single error that contains all errors discovered during validation.
-Update the code in `main` to properly report multiple errors.
-*/
+// Rather than returning the first error found,
+// return back a single error that contains all errors discovered during validation.
+// Update the code in `main` to properly report multiple errors.
 func main() {
 	d := json.NewDecoder(strings.NewReader(data))
 	count := 0

@@ -5,19 +5,17 @@ import (
 	"math/rand"
 )
 
-/*
-Loop over the slice you created in exercise
+// Loop over the slice you created in exercise
 
-1. For each value in the slice, apply the following rules:
+// 1. For each value in the slice, apply the following rules:
 
-a. If the value is divisible by 2, print “Two!”
+// a. If the value is divisible by 2, print “Two!”
 
-b. If the value is divisible by 3, print “Three!”
+// b. If the value is divisible by 3, print “Three!”
 
-c. If the value is divisible by 2 and 3, print “Six!”. Don’t print anything else.
+// c. If the value is divisible by 2 and 3, print “Six!”. Don’t print anything else.
 
-d. Otherwise, print “Never mind”.
-*/
+// d. Otherwise, print “Never mind”.
 func main() {
 	randomInts := []int{}
 

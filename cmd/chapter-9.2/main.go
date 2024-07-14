@@ -8,12 +8,10 @@ import (
 	"strings"
 )
 
-/*
-Define a custom error type to represent an empty field error.
-This error should include the name of the empty `Employee` field.
-In `main`, use `errors.As` to check for this error.
-Print out a message that includes the field name.
-*/
+// Define a custom error type to represent an empty field error.
+// This error should include the name of the empty `Employee` field.
+// In `main`, use `errors.As` to check for this error.
+// Print out a message that includes the field name.
 func main() {
 	d := json.NewDecoder(strings.NewReader(data))
 	var emptyErr EmptyFieldErr
