@@ -15,10 +15,7 @@ func main() {
 	firstWg := sync.WaitGroup{}
 	firstWg.Add(2)
 
-	printWg := sync.WaitGroup{}
-	printWg.Add(1)
-
-	buf := make(chan int, 20)
+	buf := make(chan int)
 
 	for i := 0; i < 2; i++ {
 		go func() {
@@ -35,6 +32,9 @@ func main() {
 
 		firstWg.Wait()
 	}()
+
+	printWg := sync.WaitGroup{}
+	printWg.Add(1)
 
 	go func() {
 		defer printWg.Done()
