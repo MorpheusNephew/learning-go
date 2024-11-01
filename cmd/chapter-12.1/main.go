@@ -1,6 +1,10 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"math/rand"
+	"sync"
+)
 
 // Create a function that launches three goroutines that communicate using a channel.
 // The first two goroutines each write 10 numbers to the channel.
@@ -8,5 +12,37 @@ import "fmt"
 // The function should exit when all values have been printed out.
 // Make sure that none of the goroutines leak. You can create additional goroutines if needed.
 func main() {
-	fmt.Println("Hello world")
+	firstWg := sync.WaitGroup{}
+	firstWg.Add(2)
+
+	printWg := sync.WaitGroup{}
+	printWg.Add(1)
+
+	buf := make(chan int, 20)
+
+	for i := 0; i < 2; i++ {
+		go func() {
+			defer firstWg.Done()
+
+			for j := 0; j < 10; j++ {
+				buf <- rand.Intn(100) + 1
+			}
+		}()
+	}
+
+	go func() {
+		defer close(buf)
+
+		firstWg.Wait()
+	}()
+
+	go func() {
+		defer printWg.Done()
+
+		for val := range buf {
+			fmt.Println(val)
+		}
+	}()
+
+	printWg.Wait()
 }
