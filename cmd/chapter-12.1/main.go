@@ -12,7 +12,7 @@ import (
 // The function should exit when all values have been printed out.
 // Make sure that none of the goroutines leak. You can create additional goroutines if needed.
 func main() {
-	firstWg := sync.WaitGroup{}
+	var firstWg sync.WaitGroup
 	firstWg.Add(2)
 
 	buf := make(chan int)
@@ -33,7 +33,7 @@ func main() {
 		firstWg.Wait()
 	}()
 
-	printWg := sync.WaitGroup{}
+	var printWg sync.WaitGroup
 	printWg.Add(1)
 
 	go func() {

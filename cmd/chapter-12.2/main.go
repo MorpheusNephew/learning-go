@@ -34,7 +34,7 @@ func main() {
 }
 
 func nRandomValues(n int) <-chan int {
-	ch := make(chan int, n)
+	ch := make(chan int)
 
 	go func() {
 		defer close(ch)
